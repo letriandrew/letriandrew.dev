@@ -44,7 +44,7 @@ export function Navbar() {
                   key={path}
                   href="#work"
                   onClick={handleWorkClick}
-                  className="terminal-nav-item text-terminal-text hover:text-terminal-cyan transition-colors"
+                  className="terminal-nav-item text-terminal-text hover:text-terminal-blue transition-colors"
                 >
                   {name}
                 </a>

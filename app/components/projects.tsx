@@ -46,7 +46,7 @@ export function Projects({ projects }: ProjectsProps) {
                   )}
                   <Link
                     href={`/work/${project.slug}`}
-                    className="inline-block text-sm text-terminal-text hover:text-terminal-cyan transition-colors underline"
+                    className="inline-block text-sm text-terminal-text hover:text-terminal-blue transition-colors underline"
                   >
                     Read more →
                   </Link>

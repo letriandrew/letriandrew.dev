@@ -60,9 +60,9 @@ export default function RootLayout({
             <div className="terminal-content-area py-8">
               {children}
             </div>
+            <ContactSection />
             <Footer />
           </div>
-          <ContactSection />
           <Analytics />
           <SpeedInsights />
         </main>

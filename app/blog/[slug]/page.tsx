@@ -83,7 +83,7 @@ export default function Blog({ params }) {
         }}
       />
       <div className="terminal-line mb-6">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-text text-terminal-text ml-2">cat posts/{post.slug}.mdx</span>
       </div>
       <div className="terminal-output">
@@ -100,7 +100,7 @@ export default function Blog({ params }) {
         </article>
       </div>
       <div className="terminal-line mt-8">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-cursor ml-2"></span>
       </div>
     </section>

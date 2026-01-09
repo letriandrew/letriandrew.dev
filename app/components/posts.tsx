@@ -26,7 +26,7 @@ export function BlogPosts() {
                 <span className="text-terminal-text text-xs opacity-70 tabular-nums min-w-[100px]">
                   {formatDate(post.metadata.publishedAt, false)}
                 </span>
-                <span className="text-terminal-amber tracking-tight hover:text-terminal-cyan transition-colors">
+                <span className="text-terminal-amber tracking-tight hover:text-terminal-blue transition-colors">
                   {post.metadata.title}
                 </span>
               </div>

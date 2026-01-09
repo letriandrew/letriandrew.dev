@@ -80,7 +80,7 @@ export default function Project({ params }) {
         }}
       />
       <div className="terminal-line mb-6">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-text text-terminal-text ml-2">cat projects/{project.slug}.mdx</span>
       </div>
       <div className="terminal-output">
@@ -97,7 +97,7 @@ export default function Project({ params }) {
                 href={project.metadata.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-terminal-text hover:text-terminal-cyan transition-colors"
+                className="text-terminal-text hover:text-terminal-blue transition-colors"
               >
                 GitHub →
               </a>
@@ -107,7 +107,7 @@ export default function Project({ params }) {
                 href={project.metadata.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-terminal-text hover:text-terminal-cyan transition-colors"
+                className="text-terminal-text hover:text-terminal-blue transition-colors"
               >
                 Live Demo →
               </a>
@@ -119,7 +119,7 @@ export default function Project({ params }) {
         </article>
       </div>
       <div className="terminal-line mt-8">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-cursor ml-2"></span>
       </div>
     </section>

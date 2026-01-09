@@ -10,11 +10,11 @@ export default function Page() {
     <section className="terminal-section">
       <FigletBanner />
       <div className="terminal-line mb-6">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-text text-terminal-text ml-2">cat about.txt</span>
       </div>
       <div className="terminal-output mb-8">
-        <h1 className="mb-4 text-2xl font-semibold tracking-tighter text-terminal-text">
+        <h1 className="mb-4 text-2xl font-semibold tracking-tighter text-terminal-amber">
           Andrew Le is a software engineer and security engineer.
         </h1>
         <p className="mb-4 text-terminal-text leading-relaxed">
@@ -27,7 +27,7 @@ export default function Page() {
       </div>
 
       <div className="terminal-line mb-2">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-text text-terminal-text ml-2">cat experience.txt</span>
       </div>
       <div className="terminal-output mb-8">
@@ -35,7 +35,7 @@ export default function Page() {
           {experience.map((exp, index) => (
             <div
               key={index}
-              className="w-12 h-12 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center hover:border-terminal-cyan transition-colors"
+              className="w-12 h-12 rounded-lg bg-[#2d2d2d] border border-[#404040] flex items-center justify-center hover:border-terminal-blue transition-colors"
             >
               {exp.logo ? (
                 <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain rounded-lg" />
@@ -71,7 +71,7 @@ export default function Page() {
       </div>
 
       <div id="work" className="terminal-line mb-2">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-text text-terminal-text ml-2">ls -la projects/</span>
       </div>
       <div className="terminal-output">
@@ -79,7 +79,7 @@ export default function Page() {
       </div>
       
       <div className="terminal-line mt-8">
-        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-prompt text-terminal-blue">$</span>
         <span className="terminal-cursor ml-2"></span>
       </div>
     </section>

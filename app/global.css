@@ -35,18 +35,18 @@ html {
 
 /* Terminal Theme - Apply to entire page */
 .terminal-theme {
-  background-color: #0c0c0c;
-  color: #cccccc;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
 }
 
 .terminal-body-bg {
-  background-color: #0c0c0c;
-  color: #cccccc;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
 }
 
 .terminal-main-container {
   min-height: 100vh;
-  background-color: #0c0c0c;
+  background-color: var(--terminal-bg);
   font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
 }
 
@@ -117,7 +117,7 @@ html {
 }
 
 .terminal-theme a:hover {
-  color: var(--terminal-cyan);
+  color: var(--terminal-blue);
 }
 
 /* Terminal text utility classes */
@@ -172,20 +172,22 @@ html {
 
 .prose a {
   @apply underline transition-all underline-offset-2 decoration-[0.1em];
-  color: var(--terminal-text);
+  color: var(--terminal-blue);
 }
 
 .prose a:hover {
-  color: var(--terminal-cyan);
+  color: var(--terminal-blue);
+  opacity: 0.8;
 }
 
 .prose-invert a {
   @apply underline transition-all underline-offset-2 decoration-[0.1em];
-  color: var(--terminal-text);
+  color: var(--terminal-blue);
 }
 
 .prose-invert a:hover {
-  color: var(--terminal-cyan);
+  color: var(--terminal-blue);
+  opacity: 0.8;
 }
 
 .prose .anchor:after {
@@ -316,28 +318,28 @@ table {
   text-wrap: balance;
 }
 
-/* Terminal CSS Custom Properties - White Text for Readability */
+/* Terminal CSS Custom Properties - Modern Dark Gray Theme */
 :root {
-  --terminal-bg: #0a0e14;
-  --terminal-bg-header: #1a1e24;
+  --terminal-bg: #1a1a1a;
+  --terminal-bg-header: #2d2d2d;
   --terminal-text: #ffffff;
   --terminal-green: #ffffff;
-  --terminal-green-dark: #e0e0e0;
-  --terminal-blue: #ffffff;
-  --terminal-amber: #ffd700;
-  --terminal-red: #ff6b6b;
-  --terminal-cyan: #4dd0e1;
-  --terminal-border: #3d4758;
-  --terminal-shadow: rgba(0, 0, 0, 0.5);
+  --terminal-green-dark: #e5e5e5;
+  --terminal-blue: #3b82f6;
+  --terminal-amber: #fbbf24;
+  --terminal-red: #ef4444;
+  --terminal-cyan: #06b6d4;
+  --terminal-border: #404040;
+  --terminal-shadow: rgba(0, 0, 0, 0.4);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --terminal-bg: #0a0e14;
-    --terminal-bg-header: #1a1e24;
+    --terminal-bg: #1a1a1a;
+    --terminal-bg-header: #2d2d2d;
     --terminal-text: #ffffff;
     --terminal-green: #ffffff;
-    --terminal-border: #3d4758;
+    --terminal-border: #404040;
   }
 }
 
@@ -385,9 +387,16 @@ table {
   line-height: 1.2;
   margin: 0;
   overflow-x: auto;
+  white-space: pre;
 }
 
 @media (max-width: 640px) {
+  .terminal-figlet-text {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
   .terminal-figlet-text {
     font-size: 0.625rem;
   }
@@ -440,7 +449,7 @@ table {
 
 /* Terminal Prompt Styling */
 .terminal-prompt {
-  color: var(--terminal-cyan);
+  color: var(--terminal-blue);
   margin-right: 8px;
   font-weight: 500;
   user-select: none;
@@ -617,6 +626,6 @@ table {
 }
 
 .terminal-command-wrapper:hover .terminal-prompt {
-  color: var(--terminal-cyan);
-  text-shadow: 0 0 8px var(--terminal-cyan);
+  color: var(--terminal-blue);
+  text-shadow: 0 0 8px var(--terminal-blue);
 }
