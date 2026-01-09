@@ -55,12 +55,14 @@ export default function RootLayout({
     >
       <body className="antialiased terminal-body-bg">
         <main className="terminal-main-container">
-          <Navbar />
-          <div className="terminal-content-area max-w-4xl px-4 py-8">
-            {children}
+          <div className="mx-auto max-w-4xl px-4">
+            <Navbar />
+            <div className="terminal-content-area py-8">
+              {children}
+            </div>
+            <Footer />
           </div>
           <ContactSection />
-          <Footer />
           <Analytics />
           <SpeedInsights />
         </main>

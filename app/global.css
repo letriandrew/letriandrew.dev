@@ -52,19 +52,6 @@ html {
 
 .terminal-content-area {
   font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  .terminal-content-area {
-    margin-left: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .terminal-content-area {
-    margin-left: 4rem;
-  }
 }
 
 .terminal-section {
@@ -73,35 +60,10 @@ html {
 
 .terminal-nav {
   font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  .terminal-nav {
-    margin-left: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .terminal-nav {
-    margin-left: 4rem;
-  }
 }
 
 .terminal-footer {
-  margin-left: 0;
-}
-
-@media (min-width: 768px) {
-  .terminal-footer {
-    margin-left: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .terminal-footer {
-    margin-left: 4rem;
-  }
+  /* Footer inherits centering from parent container */
 }
 
 .terminal-nav-item {
