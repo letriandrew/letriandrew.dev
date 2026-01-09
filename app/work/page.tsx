@@ -1,4 +1,5 @@
 import { Projects } from 'app/components/projects'
+import { getProjects } from 'app/work/utils'
 
 export const metadata = {
   title: 'Work',
@@ -6,11 +7,13 @@ export const metadata = {
 }
 
 export default function Page() {
+  const projects = getProjects()
+  
   return (
     <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Work</h1>
+      <h1 className="font-semibold text-2xl mb-8 tracking-tighter text-terminal-blue">My Work</h1>
       <div className="my-8">
-        <Projects />
+        <Projects projects={projects} />
       </div>
     </section>
   )
