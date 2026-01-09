@@ -31,13 +31,14 @@ export function Projects({ projects }: ProjectsProps) {
         .map((project) => (
           <div key={project.slug} className="terminal-line mb-4">
             <div className="terminal-output">
-              <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-                <span className="text-terminal-text text-xs opacity-70 tabular-nums min-w-[100px]">
-                  {formatDate(project.metadata.publishedAt, false)}
-                </span>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 flex-shrink-0"></div>
                 <div className="flex-1">
                   <div className="text-terminal-amber font-medium mb-1">
                     {project.metadata.title}
+                  </div>
+                  <div className="text-terminal-text text-xs opacity-70 tabular-nums mb-2">
+                    {formatDate(project.metadata.publishedAt, false)}
                   </div>
                   {project.metadata.summary && (
                     <div className="text-terminal-text text-sm mb-2 opacity-80">

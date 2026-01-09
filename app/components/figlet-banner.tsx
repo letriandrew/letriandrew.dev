@@ -17,10 +17,7 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo`}
           </p>
         </div>
         <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-2xl bg-[#2d2d2d] border border-terminal-border flex items-center justify-center overflow-hidden flex-shrink-0">
-          {/* Replace this div with your image when ready:
-              <img src="/your-photo.jpg" alt="Andrew Le" className="w-full h-full object-cover rounded-2xl" />
-          */}
-          <span className="text-terminal-text text-xs opacity-50">Photo</span>
+          <img src="/images/me.jpeg" alt="Andrew Le" className="w-full h-full object-cover rounded-2xl" />
         </div>
       </div>
     </div>
