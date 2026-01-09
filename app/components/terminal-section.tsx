@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactNode, useRef, useEffect } from 'react'
+import React, { ReactNode, useRef, useEffect, Children } from 'react'
 import { TerminalWindow } from './terminal-window'
 import { useSequentialAnimations } from './use-sequential-animations'
 
@@ -17,7 +17,7 @@ export function TerminalSection({
 }: TerminalSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const animationItems = Array.from(
-    { length: React.Children.count(children) },
+    { length: Children.count(children) },
     (_, i) => ({ id: `item-${i}` })
   )
 
