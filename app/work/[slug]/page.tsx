@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getProjects } from 'app/work/utils'
+import { getProjects } from 'app/work/utils'
+import { formatDate } from 'app/work/date-utils'
 import { baseUrl } from 'app/sitemap'
 import Link from 'next/link'
 

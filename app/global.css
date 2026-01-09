@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
 ::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
+  background-color: rgba(88, 166, 255, 0.3);
+  color: #c9d1d9;
 }
 
 :root {
@@ -31,6 +31,75 @@
 
 html {
   min-width: 360px;
+}
+
+/* Terminal Theme - Apply to entire page */
+.terminal-theme {
+  background-color: #0a0e14;
+  color: #c9d1d9;
+}
+
+.terminal-body-bg {
+  background-color: #0a0e14;
+  color: #c9d1d9;
+}
+
+/* Terminal-themed text colors */
+.terminal-theme h1,
+.terminal-theme h2,
+.terminal-theme h3,
+.terminal-theme h4,
+.terminal-theme h5,
+.terminal-theme h6 {
+  color: #58a6ff;
+}
+
+.terminal-theme p {
+  color: #c9d1d9;
+}
+
+.terminal-theme a {
+  color: #58a6ff;
+}
+
+.terminal-theme a:hover {
+  color: #79c0ff;
+}
+
+/* Terminal text utility classes */
+.text-terminal-text {
+  color: var(--terminal-text);
+}
+
+.text-terminal-blue {
+  color: var(--terminal-blue);
+}
+
+.text-terminal-cyan {
+  color: var(--terminal-cyan);
+}
+
+/* Update nav and footer to match terminal theme */
+.terminal-theme nav a,
+.terminal-theme nav button {
+  color: var(--terminal-text);
+}
+
+.terminal-theme nav a:hover,
+.terminal-theme nav button:hover {
+  color: var(--terminal-cyan);
+}
+
+.terminal-theme footer {
+  color: var(--terminal-text);
+}
+
+.terminal-theme footer a {
+  color: var(--terminal-blue);
+}
+
+.terminal-theme footer a:hover {
+  color: var(--terminal-cyan);
 }
 
 .prose .anchor {
@@ -147,4 +216,279 @@ table {
 
 .title {
   text-wrap: balance;
+}
+
+/* Terminal CSS Custom Properties */
+:root {
+  --terminal-bg: #0d1117;
+  --terminal-bg-header: #161b22;
+  --terminal-text: #c9d1d9;
+  --terminal-green: #00ff00;
+  --terminal-green-dark: #39ff14;
+  --terminal-blue: #58a6ff;
+  --terminal-amber: #ffb000;
+  --terminal-red: #ff6b6b;
+  --terminal-cyan: #00ffff;
+  --terminal-border: #30363d;
+  --terminal-shadow: rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --terminal-bg: #0d1117;
+    --terminal-bg-header: #161b22;
+    --terminal-text: #c9d1d9;
+    --terminal-green: #39ff14;
+    --terminal-border: #30363d;
+  }
+}
+
+/* Terminal Window Styles */
+.terminal-window {
+  box-shadow: 0 4px 6px -1px var(--terminal-shadow), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.2),
+              0 0 0 1px var(--terminal-border);
+  background-color: var(--terminal-bg);
+  transition: box-shadow 0.2s ease;
+}
+
+.terminal-window:hover {
+  box-shadow: 0 6px 12px -2px var(--terminal-shadow), 
+              0 4px 6px -1px rgba(0, 0, 0, 0.3),
+              0 0 0 1px var(--terminal-border);
+}
+
+.terminal-header {
+  user-select: none;
+  background-color: var(--terminal-bg-header);
+  border-bottom: 1px solid var(--terminal-border);
+}
+
+.terminal-body {
+  background-color: var(--terminal-bg);
+  min-height: 100px;
+  color: var(--terminal-text);
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+}
+
+.terminal-content {
+  line-height: 1.6;
+  color: var(--terminal-text);
+}
+
+/* Terminal Text Colors */
+.text-terminal-green {
+  color: var(--terminal-green);
+}
+
+.text-terminal-green-dark {
+  color: var(--terminal-green-dark);
+}
+
+.text-terminal-amber {
+  color: var(--terminal-amber);
+}
+
+.text-terminal-blue {
+  color: var(--terminal-blue);
+}
+
+.text-terminal-red {
+  color: var(--terminal-red);
+}
+
+.text-terminal-cyan {
+  color: var(--terminal-cyan);
+}
+
+/* Terminal Cursor Blink Animation */
+@keyframes terminal-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background-color: var(--terminal-green);
+  animation: terminal-blink 1s infinite;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+}
+
+/* Terminal Prompt Styling */
+.terminal-prompt {
+  color: var(--terminal-green);
+  margin-right: 8px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.terminal-command {
+  color: var(--terminal-blue);
+  font-weight: 500;
+}
+
+.terminal-output {
+  color: var(--terminal-text);
+  opacity: 0.9;
+}
+
+.terminal-error {
+  color: var(--terminal-red);
+  font-weight: 500;
+}
+
+.terminal-success {
+  color: var(--terminal-green-dark);
+  font-weight: 500;
+}
+
+.terminal-info {
+  color: var(--terminal-cyan);
+}
+
+/* Terminal Line Styling */
+.terminal-line {
+  display: block;
+  margin-bottom: 6px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.terminal-line:last-child {
+  margin-bottom: 0;
+}
+
+/* Terminal Selection Styling */
+.terminal-body ::selection {
+  background-color: rgba(88, 166, 255, 0.3);
+  color: var(--terminal-text);
+}
+
+.terminal-body ::-moz-selection {
+  background-color: rgba(88, 166, 255, 0.3);
+  color: var(--terminal-text);
+}
+
+/* Terminal Scrollbar Styling */
+.terminal-body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: var(--terminal-border);
+  border-radius: 4px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Terminal Window Controls */
+.terminal-control {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.terminal-control:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Terminal Typography */
+.terminal-text {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Terminal Spacing Utilities */
+.terminal-gap {
+  gap: 6px;
+}
+
+.terminal-spacing-sm {
+  margin-bottom: 4px;
+}
+
+.terminal-spacing-md {
+  margin-bottom: 8px;
+}
+
+.terminal-spacing-lg {
+  margin-bottom: 12px;
+}
+
+/* Terminal Clickable Commands */
+.terminal-command-wrapper {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin: -2px -4px;
+}
+
+.terminal-clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.terminal-clickable:hover {
+  background-color: rgba(88, 166, 255, 0.1);
+  transform: translateX(2px);
+}
+
+.terminal-clickable:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+.terminal-clickable:focus {
+  outline: 2px solid var(--terminal-blue);
+  outline-offset: 2px;
+}
+
+.terminal-expand-indicator {
+  color: var(--terminal-cyan);
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.terminal-clickable:hover .terminal-expand-indicator {
+  opacity: 1;
+}
+
+.terminal-output-animated {
+  animation: terminal-fade-in 0.3s ease-in;
+}
+
+@keyframes terminal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Terminal Command Hover Effects */
+.terminal-command-wrapper:hover .terminal-command {
+  color: var(--terminal-cyan);
+}
+
+.terminal-command-wrapper:hover .terminal-prompt {
+  color: var(--terminal-green-dark);
+  text-shadow: 0 0 8px var(--terminal-green);
 }

@@ -49,7 +49,7 @@ export function Navbar() {
                       key={path}
                       href="#work"
                       onClick={handleWorkClick}
-                      className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+                      className="transition-all text-terminal-text hover:text-terminal-cyan flex align-middle relative py-1 px-2 m-1"
                     >
                       {name}
                     </a>
