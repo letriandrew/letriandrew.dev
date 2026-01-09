@@ -16,6 +16,7 @@ interface TerminalCommandProps {
   typingSpeed?: number
   expandable?: boolean
   defaultExpanded?: boolean
+  onAnimationComplete?: () => void
 }
 
 export function TerminalCommand({
@@ -31,15 +32,17 @@ export function TerminalCommand({
   typingSpeed = 50,
   expandable = false,
   defaultExpanded = false,
+  onAnimationComplete,
 }: TerminalCommandProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
   const isClickable = !!onClick || expandable
 
-  const { displayedText, isTyping } = useTypingAnimation({
+  const { displayedText, isTyping, isComplete } = useTypingAnimation({
     text: command,
     speed: typingSpeed,
     startDelay: animateTyping ? 200 : 0,
     enabled: animateTyping,
+    onComplete: onAnimationComplete,
   })
 
   const typeClasses = {

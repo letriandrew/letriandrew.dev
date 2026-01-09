@@ -1,112 +1,86 @@
 import { Projects } from 'app/components/projects'
-import { TerminalWindow } from 'app/components/terminal-window'
-import { TerminalCommand } from 'app/components/terminal-command'
 import { getProjects } from 'app/work/utils'
+import { experience, education } from 'app/data/experience'
+import { FigletBanner } from 'app/components/figlet-banner'
 
 export default function Page() {
   const projects = getProjects()
+  
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter text-terminal-blue">
-        Andrew Le is a software engineer and security engineer.
-      </h1>
-      <p className="mb-4 text-terminal-text">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
-      </p>
-      <div className="mb-8">
-        <h2 className="text-sm font-medium text-terminal-cyan mb-3">
-          Experience and Education
-        </h2>
-        <TerminalWindow title="experience">
-          <TerminalCommand 
-            command="whoami" 
-            type="info" 
-            animateTyping={true}
-            typingSpeed={80}
-          />
-          <TerminalCommand
-            command=""
-            output="Software Engineer & Security Engineer"
-            showPrompt={false}
-            type="success"
-          />
-          <TerminalCommand command="" output="" showPrompt={false} />
-          <TerminalCommand 
-            command="cat ~/.bash_history | grep -i 'worked\|company\|education'" 
-            type="command"
-            animateTyping={true}
-            typingSpeed={30}
-          />
-          <TerminalCommand
-            command=""
-            output="ls -la companies/"
-            showPrompt={false}
-            type="output"
-          />
-          <TerminalCommand 
-            command="ls -la companies/" 
-            type="command"
-            expandable={true}
-            animateTyping={true}
-            typingSpeed={40}
-          />
-          <TerminalCommand
-            command=""
-            output={
-              <div className="terminal-output">
-                <div className="flex flex-wrap gap-3 mt-2">
-                  <div className="w-12 h-12 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center hover:border-terminal-cyan transition-colors">
-                    <span className="text-xs text-terminal-text opacity-70">Logo</span>
-                  </div>
-                  <div className="w-12 h-12 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center hover:border-terminal-cyan transition-colors">
-                    <span className="text-xs text-terminal-text opacity-70">Logo</span>
-                  </div>
-                  <div className="w-12 h-12 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center hover:border-terminal-cyan transition-colors">
-                    <span className="text-xs text-terminal-text opacity-70">Logo</span>
-                  </div>
-                </div>
-              </div>
-            }
-            showPrompt={false}
-            type="output"
-          />
-          <TerminalCommand command="" output="" showPrompt={false} />
-          <TerminalCommand 
-            command="cat companies/company-a.txt" 
-            type="command"
-            expandable={true}
-            animateTyping={true}
-            typingSpeed={40}
-          />
-          <TerminalCommand
-            command=""
-            output={
-              <div className="terminal-output">
-                <div className="terminal-text text-terminal-amber mb-1">
-                  Software Engineer
-                </div>
-                <div className="terminal-text text-neutral-400 text-xs">
-                  2020 - 2023
-                </div>
-                <div className="terminal-text text-neutral-300 mt-2">
-                  Backend systems, API development, security practices
-                </div>
-              </div>
-            }
-            showPrompt={false}
-            type="output"
-          />
-        </TerminalWindow>
+    <section className="terminal-section">
+      <FigletBanner />
+      <div className="terminal-line mb-6">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">cat about.txt</span>
       </div>
-      <div id="work" className="my-8">
-        <h2 className="text-sm font-medium text-terminal-cyan mb-3">
-          Projects
-        </h2>
+      <div className="terminal-output mb-8">
+        <h1 className="mb-4 text-2xl font-semibold tracking-tighter text-terminal-text">
+          Andrew Le is a software engineer and security engineer.
+        </h1>
+        <p className="mb-4 text-terminal-text leading-relaxed">
+          {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
+          Vim's keystroke commands and tabs' flexibility for personal viewing
+          preferences. This extends to my support for static typing, where its
+          early error detection ensures cleaner code, and my preference for dark
+          mode, which eases long coding sessions by reducing eye strain.`}
+        </p>
+      </div>
+
+      <div className="terminal-line mb-2">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">cat experience.txt</span>
+      </div>
+      <div className="terminal-output mb-8">
+        <div className="flex flex-wrap gap-3 mb-4">
+          {experience.map((exp, index) => (
+            <div
+              key={index}
+              className="w-12 h-12 rounded-lg bg-[#161b22] border border-[#30363d] flex items-center justify-center hover:border-terminal-cyan transition-colors"
+            >
+              {exp.logo ? (
+                <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain rounded-lg" />
+              ) : (
+                <span className="text-xs text-terminal-text opacity-70">{exp.company.charAt(0)}</span>
+              )}
+            </div>
+          ))}
+        </div>
+        {experience.map((exp, index) => (
+          <div key={index} className="mb-4 pb-4 border-b border-terminal-border last:border-0">
+            <div className="text-terminal-amber font-medium mb-1">{exp.role}</div>
+            <div className="text-terminal-text text-sm mb-1">{exp.company}</div>
+            <div className="text-terminal-text text-xs opacity-70 mb-2">{exp.period}</div>
+            <div className="text-terminal-text text-sm">{exp.description}</div>
+          </div>
+        ))}
+        {education.length > 0 && (
+          <>
+            <div className="text-terminal-text text-sm font-medium mt-6 mb-3">Education</div>
+            {education.map((edu, index) => (
+              <div key={index} className="mb-4 pb-4 border-b border-terminal-border last:border-0">
+                <div className="text-terminal-amber font-medium mb-1">{edu.role}</div>
+                <div className="text-terminal-text text-sm mb-1">{edu.company}</div>
+                <div className="text-terminal-text text-xs opacity-70 mb-2">{edu.period}</div>
+                {edu.description && (
+                  <div className="text-terminal-text text-sm">{edu.description}</div>
+                )}
+              </div>
+            ))}
+          </>
+        )}
+      </div>
+
+      <div id="work" className="terminal-line mb-2">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">ls -la projects/</span>
+      </div>
+      <div className="terminal-output">
         <Projects projects={projects} />
+      </div>
+      
+      <div className="terminal-line mt-8">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-cursor ml-2"></span>
       </div>
     </section>
   )

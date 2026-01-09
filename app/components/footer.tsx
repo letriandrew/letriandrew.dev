@@ -17,42 +17,8 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="mb-16">
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-terminal-text md:flex-row md:space-x-4 md:space-y-0">
-        <li>
-          <a
-            className="flex items-center transition-all text-terminal-blue hover:text-terminal-cyan"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/letriandrew/"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">linkedin</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all text-terminal-blue hover:text-terminal-cyan"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/letriandrew"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all text-terminal-blue hover:text-terminal-cyan"
-            rel="noopener noreferrer"
-            href="mailto:letriandrew@gmail.com"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">email</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-terminal-text">
+    <footer className="mb-16 mt-8 terminal-footer">
+      <p className="text-terminal-text text-sm">
         Made by Andrew Le © {new Date().getFullYear()} 
       </p>
     </footer>

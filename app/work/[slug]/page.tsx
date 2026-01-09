@@ -61,7 +61,7 @@ export default function Project({ params }) {
   }
 
   return (
-    <section>
+    <section className="terminal-section">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -79,39 +79,49 @@ export default function Project({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {project.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(project.metadata.publishedAt)}
-        </p>
-        <div className="flex gap-4">
-          {project.metadata.githubUrl && (
-            <a
-              href={project.metadata.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-            >
-              GitHub →
-            </a>
-          )}
-          {project.metadata.liveUrl && (
-            <a
-              href={project.metadata.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-            >
-              Live Demo →
-            </a>
-          )}
-        </div>
+      <div className="terminal-line mb-6">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">cat projects/{project.slug}.mdx</span>
       </div>
-      <article className="prose">
-        <CustomMDX source={project.content} />
-      </article>
+      <div className="terminal-output">
+        <h1 className="title font-semibold text-2xl tracking-tighter text-terminal-amber mb-4">
+          {project.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+          <p className="text-sm text-terminal-text opacity-70">
+            {formatDate(project.metadata.publishedAt)}
+          </p>
+          <div className="flex gap-4">
+            {project.metadata.githubUrl && (
+              <a
+                href={project.metadata.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-terminal-text hover:text-terminal-cyan transition-colors"
+              >
+                GitHub →
+              </a>
+            )}
+            {project.metadata.liveUrl && (
+              <a
+                href={project.metadata.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-terminal-text hover:text-terminal-cyan transition-colors"
+              >
+                Live Demo →
+              </a>
+            )}
+          </div>
+        </div>
+        <article className="prose prose-invert">
+          <CustomMDX source={project.content} />
+        </article>
+      </div>
+      <div className="terminal-line mt-8">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-cursor ml-2"></span>
+      </div>
     </section>
   )
 }

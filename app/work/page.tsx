@@ -10,10 +10,21 @@ export default function Page() {
   const projects = getProjects()
   
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter text-terminal-blue">My Work</h1>
-      <div className="my-8">
+    <section className="terminal-section">
+      <div className="terminal-line mb-6">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">cd work/</span>
+      </div>
+      <div className="terminal-line mb-2">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">ls -la projects/</span>
+      </div>
+      <div className="terminal-output">
         <Projects projects={projects} />
+      </div>
+      <div className="terminal-line mt-8">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-cursor ml-2"></span>
       </div>
     </section>
   )

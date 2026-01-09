@@ -19,22 +19,26 @@ export function TerminalWindow({
     <div
       className={`terminal-window rounded-lg overflow-hidden ${className}`}
     >
-      {/* Terminal Header Bar */}
-      <div className="terminal-header flex items-center gap-2 px-4 py-2">
-        {/* Window Controls */}
-        <div className="flex gap-1.5">
-          <div className="terminal-control w-3 h-3 rounded-full bg-red-500/80"></div>
-          <div className="terminal-control w-3 h-3 rounded-full bg-yellow-500/80"></div>
-          <div className="terminal-control w-3 h-3 rounded-full bg-green-500/80"></div>
-        </div>
+      {/* Windows Style Header Bar */}
+      <div className="terminal-header flex items-center justify-between px-3 py-1.5">
         {/* Terminal Title */}
-        <div className="flex-1 text-center">
-          <span className="terminal-text text-xs text-neutral-400 dark:text-neutral-500">
+        <div className="flex-1">
+          <span className="terminal-text text-xs text-white">
             {title}
           </span>
         </div>
-        {/* Spacer for symmetry */}
-        <div className="w-[42px]"></div>
+        {/* Window Controls - Windows style on the right */}
+        <div className="flex items-center gap-0.5">
+          <button className="terminal-windows-button terminal-windows-minimize w-6 h-6 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+            <span className="leading-none text-xs">−</span>
+          </button>
+          <button className="terminal-windows-button terminal-windows-maximize w-6 h-6 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors">
+            <span className="leading-none text-[10px]">□</span>
+          </button>
+          <button className="terminal-windows-button terminal-windows-close w-6 h-6 flex items-center justify-center text-white/70 hover:text-white hover:bg-red-500 transition-colors">
+            <span className="leading-none text-sm">×</span>
+          </button>
+        </div>
       </div>
 
       {/* Terminal Body */}

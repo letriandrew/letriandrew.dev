@@ -19,12 +19,20 @@ export function useTypingAnimation({
 }: UseTypingAnimationOptions) {
   const [displayedText, setDisplayedText] = useState(enabled ? '' : text)
   const [isTyping, setIsTyping] = useState(false)
+  const [hasCompleted, setHasCompleted] = useState(false)
 
   useEffect(() => {
     if (!enabled) {
       setDisplayedText(text)
+      setIsTyping(false)
+      setHasCompleted(false)
       return
     }
+
+    // Reset when enabled becomes true
+    setDisplayedText('')
+    setIsTyping(false)
+    setHasCompleted(false)
 
     if (startDelay > 0) {
       const delayTimer = setTimeout(() => {
@@ -37,7 +45,7 @@ export function useTypingAnimation({
   }, [startDelay, enabled, text])
 
   useEffect(() => {
-    if (!enabled || !isTyping) return
+    if (!enabled || !isTyping || hasCompleted) return
 
     if (displayedText.length < text.length) {
       const timer = setTimeout(() => {
@@ -45,11 +53,14 @@ export function useTypingAnimation({
       }, speed)
 
       return () => clearTimeout(timer)
-    } else {
+    } else if (displayedText.length === text.length && text.length > 0 && !hasCompleted) {
+      // Animation complete
       setIsTyping(false)
+      setHasCompleted(true)
+      // Call completion callback
       onComplete?.()
     }
-  }, [displayedText, text, speed, isTyping, enabled, onComplete])
+  }, [displayedText, text, speed, isTyping, enabled, hasCompleted, onComplete])
 
   return { displayedText, isTyping, isComplete: displayedText === text }
 }

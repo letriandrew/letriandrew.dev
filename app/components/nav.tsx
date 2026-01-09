@@ -35,46 +35,40 @@ export function Navbar() {
 
   return (
     <>
-      <aside className="-ml-[8px] mb-16 tracking-tight">
-        <div className="lg:sticky lg:top-20">
-          <nav
-            className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-            id="nav"
-          >
-            <div className="flex flex-row space-x-0 pr-10">
-              {Object.entries(navItems).map(([path, { name }]) => {
-                if (path === '#work') {
-                  return (
-                    <a
-                      key={path}
-                      href="#work"
-                      onClick={handleWorkClick}
-                      className="transition-all text-terminal-text hover:text-terminal-cyan flex align-middle relative py-1 px-2 m-1"
-                    >
-                      {name}
-                    </a>
-                  )
-                }
-                return (
-                  <Link
-                    key={path}
-                    href={path}
-                    className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
-                  >
-                    {name}
-                  </Link>
-                )
-              })}
-              <button
-                onClick={() => setIsContactModalOpen(true)}
-                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+      <div className="terminal-nav mb-8 pb-4 border-b border-terminal-border">
+        <div className="flex flex-row items-center gap-4 flex-wrap">
+          {Object.entries(navItems).map(([path, { name }]) => {
+            if (path === '#work') {
+              return (
+                <a
+                  key={path}
+                  href="#work"
+                  onClick={handleWorkClick}
+                  className="terminal-nav-item text-terminal-text hover:text-terminal-cyan transition-colors"
+                >
+                  {name}
+                </a>
+              )
+            }
+            return (
+              <Link
+                key={path}
+                href={path}
+                className="terminal-nav-item text-terminal-text hover:text-terminal-green transition-colors"
               >
-                contact
-              </button>
-            </div>
-          </nav>
+                {name}
+              </Link>
+            )
+          })}
+          <button
+            onClick={() => setIsContactModalOpen(true)}
+            className="terminal-nav-item text-terminal-text hover:text-terminal-green transition-colors cursor-pointer"
+            type="button"
+          >
+            contact
+          </button>
         </div>
-      </aside>
+      </div>
       <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}

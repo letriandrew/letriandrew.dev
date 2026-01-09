@@ -59,7 +59,7 @@ export default function Blog({ params }) {
   }
 
   return (
-    <section>
+    <section className="terminal-section">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -82,17 +82,27 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
+      <div className="terminal-line mb-6">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-text text-terminal-text ml-2">cat posts/{post.slug}.mdx</span>
       </div>
-      <article className="prose">
-        <CustomMDX source={post.content} />
-      </article>
+      <div className="terminal-output">
+        <h1 className="title font-semibold text-2xl tracking-tighter text-terminal-amber mb-4">
+          {post.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+          <p className="text-sm text-terminal-text opacity-70">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
+        <article className="prose prose-invert">
+          <CustomMDX source={post.content} />
+        </article>
+      </div>
+      <div className="terminal-line mt-8">
+        <span className="terminal-prompt text-terminal-cyan">$</span>
+        <span className="terminal-cursor ml-2"></span>
+      </div>
     </section>
   )
 }

@@ -1,9 +1,5 @@
-'use client'
-
 import Link from 'next/link'
 import { formatDate } from 'app/work/date-utils'
-import { TerminalWindow } from './terminal-window'
-import { TerminalCommand } from './terminal-command'
 
 type Project = {
   slug: string
@@ -22,19 +18,7 @@ export function Projects({ projects }: ProjectsProps) {
   let allProjects = projects
 
   return (
-    <TerminalWindow title="projects">
-      <TerminalCommand 
-        command="ls -la projects/" 
-        type="info"
-        animateTyping={true}
-        typingSpeed={60}
-      />
-      <TerminalCommand
-        command=""
-        output={`Found ${allProjects.length} project(s)`}
-        showPrompt={false}
-        type="success"
-      />
+    <div>
       {allProjects
         .sort((a, b) => {
           if (
@@ -44,46 +28,33 @@ export function Projects({ projects }: ProjectsProps) {
           }
           return 1
         })
-        .map((project, index) => (
-          <div key={project.slug} className="terminal-spacing-md">
-            <TerminalCommand
-              command={`cat projects/${project.slug}.mdx`}
-              type="command"
-              expandable={true}
-              animateTyping={index === 0}
-              typingSpeed={40}
-            />
-            <TerminalCommand
-              command=""
-              output={
-                <div className="terminal-output">
-                  <div className="terminal-text text-terminal-amber mb-1">
+        .map((project) => (
+          <div key={project.slug} className="terminal-line mb-4">
+            <div className="terminal-output">
+              <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+                <span className="text-terminal-text text-xs opacity-70 tabular-nums min-w-[100px]">
+                  {formatDate(project.metadata.publishedAt, false)}
+                </span>
+                <div className="flex-1">
+                  <div className="text-terminal-amber font-medium mb-1">
                     {project.metadata.title}
                   </div>
-                  <div className="terminal-text text-neutral-400 text-xs mb-2">
-                    {formatDate(project.metadata.publishedAt, false)}
-                  </div>
                   {project.metadata.summary && (
-                    <div className="terminal-text text-neutral-300 mb-2">
+                    <div className="text-terminal-text text-sm mb-2 opacity-80">
                       {project.metadata.summary}
                     </div>
                   )}
                   <Link
                     href={`/work/${project.slug}`}
-                    className="terminal-text text-terminal-cyan hover:text-terminal-blue transition-colors underline inline-block"
+                    className="inline-block text-sm text-terminal-text hover:text-terminal-cyan transition-colors underline"
                   >
                     Read more →
                   </Link>
                 </div>
-              }
-              showPrompt={false}
-              type="output"
-            />
-            {index < allProjects.length - 1 && (
-              <TerminalCommand command="" output="" showPrompt={false} />
-            )}
+              </div>
+            </div>
           </div>
         ))}
-    </TerminalWindow>
+    </div>
   )
 }
