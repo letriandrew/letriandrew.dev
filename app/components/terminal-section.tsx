@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useRef, useEffect } from 'react'
+import React, { ReactNode, useRef, useEffect } from 'react'
 import { TerminalWindow } from './terminal-window'
 import { useSequentialAnimations } from './use-sequential-animations'
 
