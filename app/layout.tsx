@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     template: "%s | letriandrew's portfolio",
   },
   description: 'This is my portfolio.',
+  icons: {
+    icon: '/images/github_pic.jpg',
+    shortcut: '/images/github_pic.jpg',
+    apple: '/images/github_pic.jpg',
+  },
   openGraph: {
     title: "letriandrew's portfolio",
     description: 'This is my portfolio.',
