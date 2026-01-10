@@ -4,6 +4,13 @@ export interface Experience {
   period: string
   description: string
   logo?: string
+  slug?: string
+  details?: {
+    bullets?: string[]
+    images?: { src: string; alt: string }[]
+    links?: { text: string; url: string }[]
+    content?: string
+  }
 }
 
 export const experience: Experience[] = [

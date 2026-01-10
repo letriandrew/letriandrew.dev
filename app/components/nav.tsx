@@ -1,9 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { ContactModal } from './contact-modal'
 
 const navItems = {
   '/': {
@@ -15,8 +13,6 @@ const navItems = {
 }
 
 export function Navbar() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-  const email = 'letriandrew@gmail.com'
   const pathname = usePathname()
 
   const handleWorkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -30,6 +26,20 @@ export function Navbar() {
     } else {
       // If on another page, navigate to home with hash
       window.location.href = '/#work'
+    }
+  }
+
+  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    if (pathname === '/') {
+      // If already on home page, scroll to contact section
+      const contactSection = document.getElementById('contact')
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    } else {
+      // If on another page, navigate to home with hash
+      window.location.href = '/#contact'
     }
   }
 
@@ -61,7 +71,7 @@ export function Navbar() {
             )
           })}
           <button
-            onClick={() => setIsContactModalOpen(true)}
+            onClick={handleContactClick}
             className="terminal-nav-item text-terminal-text hover:text-terminal-green transition-colors cursor-pointer"
             type="button"
           >
@@ -69,11 +79,6 @@ export function Navbar() {
           </button>
         </div>
       </div>
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={() => setIsContactModalOpen(false)}
-        email={email}
-      />
     </>
   )
 }
