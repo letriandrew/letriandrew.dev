@@ -275,12 +275,9 @@ Use Tab for command and filename completion.`
         return
       }
 
-      // Refocus the terminal input after a short delay
-      setTimeout(() => {
-        if (inputRef.current && document.activeElement !== inputRef.current) {
-          inputRef.current.focus()
-        }
-      }, 100)
+      // Don't auto-focus on click to prevent scrolling
+      // User can click the input directly if they want to focus it
+      // Auto-focus only happens when typing (handled in keydown handler)
     }
 
     // Global keydown handler to focus input when typing
@@ -308,7 +305,21 @@ Use Tab for command and filename completion.`
         e.key === 'End'
       ) {
         if (inputRef.current && document.activeElement !== inputRef.current) {
-          inputRef.current.focus()
+          // Check if input is in viewport
+          const rect = inputRef.current.getBoundingClientRect()
+          const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight
+          
+          // Save current scroll position
+          const scrollY = window.scrollY
+          // Focus without scrolling
+          inputRef.current.focus({ preventScroll: true })
+          
+          // Only restore scroll if input was not in viewport (to prevent unwanted scrolling)
+          if (!isInViewport) {
+            requestAnimationFrame(() => {
+              window.scrollTo(0, scrollY)
+            })
+          }
         }
       }
     }
