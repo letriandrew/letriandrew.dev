@@ -20,11 +20,13 @@ export default function Page() {
           Andrew Le is a software engineer and security engineer.
         </h1>
         <p className="mb-4 text-terminal-text leading-relaxed">
-          {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-          Vim's keystroke commands and tabs' flexibility for personal viewing
-          preferences. This extends to my support for static typing, where its
-          early error detection ensures cleaner code, and my preference for dark
-          mode, which eases long coding sessions by reducing eye strain.`}
+          I'm a software engineer and data science graduate student with experience building scalable automation systems, production software, and data-driven tooling in regulated, high-reliability environments. My background spans test automation, systems integration, backend optimization, and full-stack development, with a strong emphasis on performance, maintainability, and real-world impact.
+        </p>
+        <p className="mb-4 text-terminal-text leading-relaxed">
+          At Panasonic Avionics, I developed Python-based automation frameworks and CI/CD pipelines supporting large-scale avionics systems, reducing engineering effort and improving QA reliability across hundreds of airline configurations. I've also worked hands-on with deployed aircraft systems, performing cross-layer debugging across software, hardware, and networks, and delivering automation that accelerates issue resolution.
+        </p>
+        <p className="mb-4 text-terminal-text leading-relaxed">
+          I'm currently pursuing an M.S. in Data Science and am seeking security engineering and backend engineering roles. My experience designing robust automation, operating distributed systems, and debugging across infrastructure layers directly supports building secure, reliable backend services and security-focused tooling. I'm particularly interested in application and systems security, backend architecture, and automation that improves reliability, observability, and resilience at scale.
         </p>
       </div>
 
