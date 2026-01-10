@@ -284,7 +284,7 @@ Use Tab for command and filename completion.`
     }
 
     // Global keydown handler to focus input when typing
-    const handleDocumentKeyDown = (e: KeyboardEvent) => {
+    const handleDocumentKeyDown = (e: globalThis.KeyboardEvent) => {
       const target = e.target as HTMLElement
       
       // Don't intercept if already in an input/textarea/contenteditable
