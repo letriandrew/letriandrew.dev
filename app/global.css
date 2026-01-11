@@ -130,7 +130,7 @@ html {
 }
 
 .text-terminal-cyan {
-  color: var(--terminal-green);
+  color: var(--terminal-cyan);
 }
 
 /* Update nav and footer to match terminal theme */

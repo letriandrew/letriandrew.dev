@@ -9,7 +9,7 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
     <>
       {experiences.map((exp, index) => (
         <div key={index} className="mb-4 pb-4 border-b border-terminal-border-subtle last:border-0 flex items-start gap-4">
-          <div className="w-12 h-12 rounded-lg bg-[#2d2d2d] border border-[#404040] flex items-center justify-center hover:border-terminal-blue transition-colors flex-shrink-0">
+          <div className="w-16 h-16 rounded-lg bg-[#2d2d2d] border border-[#404040] flex items-center justify-center hover:border-terminal-blue transition-colors flex-shrink-0">
             {exp.logo ? (
               <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain rounded-lg" />
             ) : (
@@ -20,17 +20,25 @@ export function ExperienceList({ experiences }: ExperienceListProps) {
             <div className="text-terminal-amber font-medium mb-1">{exp.role}</div>
             <div className="text-terminal-text text-sm mb-1">{exp.company}</div>
             <div className="text-terminal-text text-xs opacity-70 mb-2">{exp.period}</div>
-            <div className="text-terminal-text text-sm mb-3">{exp.description}</div>
+            {exp.description && exp.description.trim() && (
+              <div className="text-terminal-text text-sm mb-3">{exp.description}</div>
+            )}
+            
+            {exp.skills && exp.skills.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-3">
+                {exp.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2 py-1 bg-[#2d2d2d] border border-terminal-border rounded text-terminal-text text-xs"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
             
             {exp.details && (
               <div className="mt-3 space-y-3">
-                {exp.details.bullets && exp.details.bullets.length > 0 && (
-                  <ul className="list-disc list-inside space-y-1 text-terminal-text text-sm ml-2">
-                    {exp.details.bullets.map((bullet, idx) => (
-                      <li key={idx}>{bullet}</li>
-                    ))}
-                  </ul>
-                )}
                 
                 {exp.details.images && exp.details.images.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">

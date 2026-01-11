@@ -5,6 +5,7 @@ export interface Experience {
   description: string
   logo?: string
   slug?: string
+  skills?: string[]
   details?: {
     bullets?: string[]
     images?: { src: string; alt: string }[]
@@ -16,42 +17,46 @@ export interface Experience {
 export const experience: Experience[] = [
   {
     company: 'Panasonic Avionics Corporation',
-    role: 'Software Engineer Intern',
+    role: 'Software Engineer Intern - Automation',
     period: 'Jun 2025 - Dec 2025',
-    description: 'Built and scaled Python-based test automation for avionics systems across 300+ airline configurations, improving QA reliability and runtime efficiency. Accelerated CI/CD pipelines with Dockerized end-to-end testing and reusable libraries, and implemented AI-assisted test generation to reduce manual effort and speed delivery.',
+    description: 'Developed Python-based test automation frameworks and CI/CD pipelines supporting large-scale avionics systems.',
     logo: '/images/panasonic.jpeg',
-    details: {
-      bullets: [
-        'Built and scaled Python-based test automation for avionics systems across 300+ airline configurations, improving QA reliability and runtime efficiency.',
-        'Accelerated CI/CD pipelines with Dockerized end-to-end testing and reusable libraries, and implemented AI-assisted test generation to reduce manual effort and speed delivery.',
-      ],
-    },
+    skills: ['Python', 'Selenium', 'Appium', 'Squish', 'Docker', 'GitLab CI', 'REST APIs'],
   },
 
   {
     company: 'Panasonic Avionics Corporation',
     role: 'Software Test Engineer',
-    period: 'Nov 2023 - May 2025',
-    description: 'Supported deployment and integration of $5M+ in in-flight entertainment systems across active aircraft for major airlines, ensuring reliability and compliance. Reduced issue resolution time through cross-layer debugging and automation, combining Linux, Bash scripting, and detailed incident analysis across hardware, software, and network systems.',
+    period: 'Nov 2023 - Feb 2025',
+    description: 'Managed systems and infrastructure integration for in-flight entertainment systems deployed on active aircraft.',
     logo: '/images/panasonic.jpeg',
+    skills: ['Bash', 'Linux', 'SSH', 'Jira', 'Network Programming'],
   },
 
   {
     company: 'Trees.app',
     role: 'Software Engineer Intern',
     period: 'Jun 2022 - Sept 2022',
-    description: 'Designed and implemented mobile app features using Flutter and Dart, translating user feedback into improved navigation, usability, and gamification. Optimized Python backend logic and algorithms, reducing runtime and improving overall system efficiency.',
+    description: 'Designed mobile app interfaces and optimized backend systems using Flutter, Dart, and Python.',
     logo: '/images/trees.jpeg',
+    skills: ['Flutter', 'Dart', 'Figma', 'Python'],
   },
   // Add more experiences here - just add new objects to this array
 ]
 
 export const education: Experience[] = [
-  // Add education entries here
-  // {
-  //   company: 'University Name',
-  //   role: 'Degree',
-  //   period: 'Year',
-  //   description: 'Details',
-  // },
+  {
+    company: 'University of Colorado Boulder',
+    role: 'M.S. Data Science',
+    period: '2024 - 2026',
+    description: '',
+    logo: '/images/boulder.png',
+  },
+  {
+    company: 'California State University San Marcos',
+    role: 'B.S. Computer Science',
+    period: '2018 - 2023',
+    description: '',
+    logo: '/images/san_marcos.png',
+  },
 ]

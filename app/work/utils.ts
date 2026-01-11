@@ -8,6 +8,7 @@ type Metadata = {
   image?: string
   githubUrl?: string
   liveUrl?: string
+  skills?: string
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -19,9 +20,11 @@ function parseFrontmatter(fileContent: string) {
   let metadata: Partial<Metadata> = {}
 
   frontMatterLines.forEach((line) => {
+    if (!line.trim()) return // Skip empty lines
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
+    
     metadata[key.trim() as keyof Metadata] = value
   })
 

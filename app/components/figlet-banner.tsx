@@ -15,6 +15,11 @@ ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo`}
           <p className="text-terminal-text text-sm mt-2 ml-1">
             Welcome to my personal portfolio website! (Version 1.0.0) Type help in the command line to see commands.
           </p>
+          <p className="text-terminal-text text-sm mt-2 ml-1">
+            <a href="/files/Le_Andrew.pdf" target="_blank" rel="noopener noreferrer" className="text-terminal-blue hover:text-terminal-cyan underline">
+              Click here to view resume
+            </a>
+          </p>
         </div>
         <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-2xl bg-[#2d2d2d] border border-terminal-border flex items-center justify-center overflow-hidden flex-shrink-0">
           <img src="/images/me.jpeg" alt="Andrew Le" className="w-full h-full object-cover rounded-2xl" />
