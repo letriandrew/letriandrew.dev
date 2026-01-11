@@ -108,4 +108,4 @@ Private - Personal portfolio website
 
 ---
 
-Made by Andrew Le © 2024
+Made by Andrew Le © 2026
