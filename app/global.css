@@ -343,38 +343,6 @@ table {
   }
 }
 
-/* Terminal Window Styles - Windows */
-.terminal-window {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  background-color: var(--terminal-bg);
-  border: 1px solid var(--terminal-border);
-  transition: box-shadow 0.2s ease;
-}
-
-.terminal-window:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.terminal-header {
-  user-select: none;
-  background-color: var(--terminal-bg-header);
-  border-bottom: 1px solid var(--terminal-border);
-  min-height: 32px;
-  display: flex;
-  align-items: center;
-}
-
-.terminal-body {
-  background-color: var(--terminal-bg);
-  min-height: 100px;
-  color: var(--terminal-text);
-  font-family: 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-}
-
-.terminal-content {
-  line-height: 1.6;
-  color: var(--terminal-text);
-}
 
 .terminal-figlet {
   margin-bottom: 2rem;
@@ -455,11 +423,6 @@ table {
   user-select: none;
 }
 
-.terminal-command {
-  color: var(--terminal-blue);
-  font-weight: 500;
-}
-
 /* Subtle border separator for experience entries */
 .border-terminal-border-subtle {
   border-color: rgba(64, 64, 64, 0.3) !important; /* 30% opacity of #404040 */
@@ -468,20 +431,6 @@ table {
 .terminal-output {
   color: var(--terminal-text);
   opacity: 0.9;
-}
-
-.terminal-error {
-  color: var(--terminal-red);
-  font-weight: 500;
-}
-
-.terminal-success {
-  color: var(--terminal-green-dark);
-  font-weight: 500;
-}
-
-.terminal-info {
-  color: var(--terminal-cyan);
 }
 
 /* Terminal Line Styling */
@@ -496,56 +445,6 @@ table {
   margin-bottom: 0;
 }
 
-/* Terminal Selection Styling */
-.terminal-body ::selection {
-  background-color: rgba(88, 166, 255, 0.3);
-  color: var(--terminal-text);
-}
-
-.terminal-body ::-moz-selection {
-  background-color: rgba(88, 166, 255, 0.3);
-  color: var(--terminal-text);
-}
-
-/* Terminal Scrollbar Styling */
-.terminal-body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-.terminal-body::-webkit-scrollbar-track {
-  background: var(--terminal-bg);
-}
-
-.terminal-body::-webkit-scrollbar-thumb {
-  background: var(--terminal-border);
-  border-radius: 4px;
-}
-
-.terminal-body::-webkit-scrollbar-thumb:hover {
-  background: #484f58;
-}
-
-/* Terminal Window Controls */
-/* Windows Button Styles */
-.terminal-windows-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  border-radius: 2px;
-}
-
-.terminal-windows-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.terminal-windows-close:hover {
-  background-color: #e81123 !important;
-}
 
 /* Terminal Typography */
 .terminal-text {
@@ -555,82 +454,3 @@ table {
   letter-spacing: 0.01em;
 }
 
-/* Terminal Spacing Utilities */
-.terminal-gap {
-  gap: 6px;
-}
-
-.terminal-spacing-sm {
-  margin-bottom: 4px;
-}
-
-.terminal-spacing-md {
-  margin-bottom: 8px;
-}
-
-.terminal-spacing-lg {
-  margin-bottom: 12px;
-}
-
-/* Terminal Clickable Commands */
-.terminal-command-wrapper {
-  transition: all 0.2s ease;
-  border-radius: 4px;
-  padding: 2px 4px;
-  margin: -2px -4px;
-}
-
-.terminal-clickable {
-  cursor: pointer;
-  user-select: none;
-}
-
-.terminal-clickable:hover {
-  background-color: rgba(88, 166, 255, 0.1);
-  transform: translateX(2px);
-}
-
-.terminal-clickable:active {
-  transform: translateX(2px) scale(0.98);
-}
-
-.terminal-clickable:focus {
-  outline: 2px solid var(--terminal-blue);
-  outline-offset: 2px;
-}
-
-.terminal-expand-indicator {
-  color: var(--terminal-cyan);
-  font-size: 0.75rem;
-  transition: transform 0.2s ease;
-  opacity: 0.7;
-}
-
-.terminal-clickable:hover .terminal-expand-indicator {
-  opacity: 1;
-}
-
-.terminal-output-animated {
-  animation: terminal-fade-in 0.3s ease-in;
-}
-
-@keyframes terminal-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Terminal Command Hover Effects */
-.terminal-command-wrapper:hover .terminal-command {
-  color: var(--terminal-cyan);
-}
-
-.terminal-command-wrapper:hover .terminal-prompt {
-  color: var(--terminal-blue);
-  text-shadow: 0 0 8px var(--terminal-blue);
-}
