@@ -1,42 +1,111 @@
-# Portfolio Blog Starter
+# letriandrew's Portfolio
 
-This is a porfolio site template complete with a blog. Includes:
+A personal portfolio website featuring an interactive terminal interface. Built with Next.js, TypeScript, and Tailwind CSS, this site presents my experience, education, projects, and blog posts through a terminal-themed UI.
 
-- MDX and Markdown support
-- Optimized for SEO (sitemap, robots, JSON-LD schema)
-- RSS Feed
-- Dynamic OG images
-- Syntax highlighting
-- Tailwind v4
-- Vercel Speed Insights / Web Analytics
-- Geist font
+## Features
 
-## Demo
+- **Interactive Terminal Interface**: Type commands like `cat`, `ls`, `pwd`, `help`, and `clear` to navigate and explore content
+- **Tab Completion**: Auto-complete commands and filenames using the Tab key
+- **Experience & Education**: Display work experience and educational background with skills badges
+- **Projects Portfolio**: Showcase projects with descriptions, dates, and technology stacks
+- **Blog Posts**: MDX-powered blog with syntax highlighting
+- **Resume Download**: Direct link to downloadable PDF resume
+- **Contact Section**: Email, GitHub, LinkedIn, and X (Twitter) links with clipboard copy functionality
+- **SEO Optimized**: Sitemap, robots.txt, RSS feed, and dynamic OG images
+- **Responsive Design**: Terminal-themed UI that works across all devices
 
-https://portfolio-blog-starter.vercel.app
+## Tech Stack
 
-## How to Use
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Content**: MDX for blog posts and projects
+- **Syntax Highlighting**: sugar-high
+- **Analytics**: Vercel Analytics & Speed Insights
+- **Deployment**: Vercel
 
-You can choose from one of the following two methods to use this repository:
+## Available Terminal Commands
 
-### One-Click Deploy
+- `cat about.txt` - Display about section
+- `cat education.txt` - Display education information
+- `cat experience.txt` - Display work experience
+- `cat projects.txt` - Display project portfolio
+- `ls` - List available files
+- `pwd` - Show current working directory
+- `help` - Display all available commands
+- `clear` - Clear terminal output (keeps history)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+## Project Structure
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/blog&project-name=blog&repository-name=blog)
-
-### Clone and Deploy
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
-
-```bash
-pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/blog blog
+```
+app/
+├── components/          # React components
+│   ├── experience-list.tsx
+│   ├── projects.tsx
+│   ├── interactive-terminal.tsx
+│   ├── figlet-banner.tsx
+│   └── ...
+├── data/               # Static data
+│   └── experience.ts   # Experience and education data
+├── work/               # Project pages
+│   └── projects/       # MDX project files
+├── blog/               # Blog pages
+│   └── posts/          # MDX blog post files
+└── ...
 ```
 
-Then, run Next.js in development mode:
+## Getting Started
 
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd blog
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Run the development server:
 ```bash
 pnpm dev
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/templates) ([Documentation](https://nextjs.org/docs/app/building-your-application/deploying)).
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Build for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+## Deployment
+
+Deploy easily to [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=<your-repo-url>)
+
+## Customization
+
+- **Experience Data**: Edit `app/data/experience.ts` to update work experience and education
+- **Projects**: Add MDX files to `app/work/projects/` with frontmatter metadata
+- **Blog Posts**: Add MDX files to `app/blog/posts/`
+- **Styling**: Modify `app/global.css` for terminal theme colors and styles
+- **Terminal Commands**: Extend `app/components/interactive-terminal.tsx` to add new commands
+
+## License
+
+Private - Personal portfolio website
+
+---
+
+Made by Andrew Le © 2024
