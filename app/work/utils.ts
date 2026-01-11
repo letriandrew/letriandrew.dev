@@ -39,8 +39,13 @@ function getMDXFiles(dir) {
 }
 
 function readMDXFile(filePath) {
-  let rawContent = fs.readFileSync(filePath, 'utf-8')
-  return parseFrontmatter(rawContent)
+  try {
+    let rawContent = fs.readFileSync(filePath, 'utf-8')
+    return parseFrontmatter(rawContent)
+  } catch (error) {
+    console.error(`Error reading file ${filePath}:`, error)
+    return { metadata: {} as Metadata, content: '' }
+  }
 }
 
 function getMDXData(dir) {

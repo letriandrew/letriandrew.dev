@@ -3,7 +3,6 @@ import { CustomMDX } from 'app/components/mdx'
 import { getProjects } from 'app/work/utils'
 import { formatDate } from 'app/work/date-utils'
 import { baseUrl } from 'app/sitemap'
-import Link from 'next/link'
 
 export async function generateStaticParams() {
   let projects = getProjects()

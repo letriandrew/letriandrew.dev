@@ -2,7 +2,13 @@ import { ImageResponse } from 'next/og'
 
 export function GET(request: Request) {
   let url = new URL(request.url)
-  let title = url.searchParams.get('title') || 'Next.js Portfolio Starter'
+  let titleParam = url.searchParams.get('title') || 'Next.js Portfolio Starter'
+  
+  // Sanitize title to prevent XSS - remove HTML tags and limit length
+  let title = titleParam
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .slice(0, 100) // Limit length
+    .trim()
 
   return new ImageResponse(
     (

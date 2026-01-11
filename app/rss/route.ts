@@ -12,15 +12,26 @@ export async function GET() {
       return 1
     })
     .map(
-      (post) =>
-        `<item>
-          <title>${post.metadata.title}</title>
+      (post) => {
+        // Escape XML special characters to prevent injection
+        const escapeXml = (str: string) => {
+          return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;')
+        }
+        
+        return `<item>
+          <title>${escapeXml(post.metadata.title)}</title>
           <link>${baseUrl}/blog/${post.slug}</link>
-          <description>${post.metadata.summary || ''}</description>
+          <description>${escapeXml(post.metadata.summary || '')}</description>
           <pubDate>${new Date(
             post.metadata.publishedAt
           ).toUTCString()}</pubDate>
         </item>`
+      }
     )
     .join('\n')
 
