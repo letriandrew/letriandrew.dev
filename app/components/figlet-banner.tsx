@@ -1,9 +1,10 @@
 export function FigletBanner() {
   return (
     <div className="terminal-figlet mb-8">
-      <div className="flex flex-row items-center gap-6 md:gap-8">
-        <div className="flex-1 min-w-0">
-          <pre className="terminal-figlet-text text-terminal-blue font-mono text-xs leading-tight whitespace-pre overflow-x-auto">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8">
+        <div className="flex-1 min-w-0 w-full sm:w-auto">
+          <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+            <pre className="terminal-figlet-text text-terminal-blue font-mono text-xs leading-tight whitespace-pre">
 {` .d888888                 dP                              dP                 
 d8'    88                 88                              88                 
 88aaaaa88a 88d888b. .d888b88 88d888b. .d8888b. dP  dP  dP 88        .d8888b. 
@@ -11,7 +12,8 @@ d8'    88                 88                              88
 88     88  88    88 88.  .88 88       88.  ... 88.88b.88' 88        88.  ... 
 88     88  dP    dP \`88888P8 dP       \`88888P' 8888P Y8P  88888888P \`88888P' 
 ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo`}
-          </pre>
+            </pre>
+          </div>
           <p className="text-terminal-text text-sm mt-2 ml-1">
             Welcome to my personal portfolio website! (Version 1.0.0) Type help in the command line to see commands.
           </p>
